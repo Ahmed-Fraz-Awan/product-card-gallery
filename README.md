@@ -12,7 +12,6 @@ This project was developed as part of a web development assignment demonstrating
 - **Asynchronous JavaScript** using async/await and Promises
 - **Array methods** including map, filter, and the spread operator
 
-**Total Marks:** 15/15
 
 ---
 
@@ -82,5 +81,5 @@ product-gallery/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/product-card-gallery.git
+   git clone https://github.com/Ahmed-Fraz-Awan/product-card-gallery.git
    cd product-card-gallery
