@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery | Tailwind + JS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom style to disable number input arrows (optional) -->
+    <style>
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar (Task 1 requirement) -->
+    <nav class="bg-white shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-indigo-600">🛍️ ShopHub</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">Home</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">Products</a>
+                    <a href="#" class="text-gray-700 hover:text-indigo-600">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Product Gallery Section -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">✨ Our Products</h2>
+        <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards will be injected here dynamically by JavaScript -->
+        </div>
+
+        <!-- Load Sample Products Button (Async Task) -->
+        <div class="mt-8 flex justify-center">
+            <button id="loadSampleBtn" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-200">
+                🔄 Load Sample Products (Async)
+            </button>
+        </div>
+
+        <!-- Loading Alert (will show/hide) -->
+        <div id="loadingAlert" class="mt-4 hidden bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-md" role="alert">
+            <p class="font-bold">⏳ Loading</p>
+            <p>Fetching new products from server...</p>
+        </div>
+
+        <!-- Add Product Form (Task 2) -->
+        <div class="mt-12 bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">➕ Add New Product</h3>
+            <form id="productForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Product Name</label>
+                    <input type="text" id="productName" required
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Price ($)</label>
+                    <input type="number" id="productPrice" required step="0.01" min="0"
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Description</label>
+                    <textarea id="productDesc" rows="2" required
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded-lg shadow transition">
+                    Add Product
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
